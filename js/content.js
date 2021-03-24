@@ -26,8 +26,15 @@ window.addEventListener('load', () => {
                     break;
                 case 'returns.wearfigs.com':
                     className = 'return-summary__total-amount';
+                    break;
+                case 'returns.verishop.com':
+                    className = 'return-summary__total-amount';
+                    break;
                 case 'www.amazon.com':
-                    className = 'a-section a-spacing-top-micro a-text-right'
+                    className = 'a-section a-spacing-top-micro a-text-right';
+                    break;
+                case 'returns.beachbunnyswimwear.com':
+                    className = 'return-total'
             }
             if (className) {
                 const elements = document.getElementsByClassName(className);
@@ -35,6 +42,8 @@ window.addEventListener('load', () => {
                     if (elements.length > 0) {
                         if (dommain === 'www.amazon.com') {
                             chrome.runtime.sendMessage({ type: "value", value: elements[0].getElementsByTagName('span')[0].innerHTML });
+                        } else if (dommain === 'returns.beachbunnyswimwear.com') {
+                            chrome.runtime.sendMessage({ type: "value", value: elements[0].getElementsByTagName('span')[1].innerHTML });
                         } else {
                             chrome.runtime.sendMessage({ type: "value", value: elements[0].innerHTML });
                         }
