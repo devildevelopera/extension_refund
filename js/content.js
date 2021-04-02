@@ -15,9 +15,12 @@ window.addEventListener('load', () => {
 
     const receiveMessage = (message) => {
         if (message === "getValue") {
-            const dommain = window.location.hostname;
+            let domain = window.location.hostname;
             let className = '';
-            switch (dommain) {
+            if (domain.includes('.store.apple.com')) {
+                domain = 'www.apple.com';
+            }
+            switch (domain) {
                 case 'returns.fahertybrand.com':
                     className = 'refund-estimate-total totals-amount';
                     break;
@@ -35,15 +38,21 @@ window.addEventListener('load', () => {
                     break;
                 case 'returns.beachbunnyswimwear.com':
                     className = 'return-total'
+                    break;
+                case 'www.apple.com':
+                    className = 'rs-refundsummary-value column large-3 small-4 small-offset-1';
+                    break;
             }
             if (className) {
                 const elements = document.getElementsByClassName(className);
-                setTimeout(function() {
+                setTimeout(function () {
                     if (elements.length > 0) {
-                        if (dommain === 'www.amazon.com') {
+                        if (domain === 'www.amazon.com') {
                             chrome.runtime.sendMessage({ type: "value", value: elements[0].getElementsByTagName('span')[0].innerHTML });
-                        } else if (dommain === 'returns.beachbunnyswimwear.com') {
+                        } else if (domain === 'returns.beachbunnyswimwear.com') {
                             chrome.runtime.sendMessage({ type: "value", value: elements[0].getElementsByTagName('span')[1].innerHTML });
+                        } else if (domain === 'www.apple.com') {
+                            chrome.runtime.sendMessage({ type: "value", value: elements[3].innerHTML });
                         } else {
                             chrome.runtime.sendMessage({ type: "value", value: elements[0].innerHTML });
                         }
