@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    setInterval(function() { chrome.runtime.sendMessage({ type: 'getValue' }); }, 1000);
+document.addEventListener('DOMContentLoaded', function () {
+    setInterval(function () { chrome.runtime.sendMessage({ type: 'getValue' }); }, 1000);
 });
 
 const receiveMessage = (message) => {

@@ -9,59 +9,233 @@ window.addEventListener('load', () => {
     iframe.style.top = "0px";
     iframe.style.right = "0px";
     iframe.style.zIndex = "9000000000000000000";
-    iframe.id = 'myFrame';
+    iframe.id = 'myIframe';
     iframe.src = chrome.extension.getURL("../popup.html");
+
     document.body.appendChild(iframe);
+
+    const sendMessage = (value) => {
+        chrome.runtime.sendMessage({ type: "value", value: value });
+    }
 
     const receiveMessage = (message) => {
         if (message === "getValue") {
-            let domain = window.location.hostname;
+            let value = '';
+            let elements = [];
             let className = '';
+            let domain = window.location.hostname;
+
             if (domain.includes('.store.apple.com')) {
-                domain = 'www.apple.com';
-            }
-            switch (domain) {
-                case 'returns.fahertybrand.com':
-                    className = 'refund-estimate-total totals-amount';
-                    break;
-                case 'returns.narvar.com':
-                    className = 'return-summary-refund-value';
-                    break;
-                case 'returns.wearfigs.com':
-                    className = 'return-summary__total-amount';
-                    break;
-                case 'returns.verishop.com':
-                    className = 'return-summary__total-amount';
-                    break;
-                case 'www.amazon.com':
-                    className = 'a-section a-spacing-top-micro a-text-right';
-                    break;
-                case 'returns.beachbunnyswimwear.com':
-                    className = 'return-total'
-                    break;
-                case 'www.apple.com':
-                    className = 'rs-refundsummary-value column large-3 small-4 small-offset-1';
-                    break;
-            }
-            if (className) {
-                const elements = document.getElementsByClassName(className);
-                setTimeout(function () {
+                className = 'rs-refundsummary-value column large-3 small-4 small-offset-1';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
                     if (elements.length > 0) {
-                        if (domain === 'www.amazon.com') {
-                            chrome.runtime.sendMessage({ type: "value", value: elements[0].getElementsByTagName('span')[0].innerHTML });
-                        } else if (domain === 'returns.beachbunnyswimwear.com') {
-                            chrome.runtime.sendMessage({ type: "value", value: elements[0].getElementsByTagName('span')[1].innerHTML });
-                        } else if (domain === 'www.apple.com') {
-                            chrome.runtime.sendMessage({ type: "value", value: elements[3].innerHTML });
-                        } else {
-                            chrome.runtime.sendMessage({ type: "value", value: elements[0].innerHTML });
-                        }
+                        value = elements[3].innerHTML;
+                        sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
                     }
                 }, 500);
             }
+
+            if (domain === 'returns.narvar.com') {
+                className = 'return-summary-estimated-refund-value';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'returns.getcasely.com') {
+                className = 'return-summary__total-amount';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'returns.wearfigs.com' || domain === 'returns.verishop.com') {
+                className = 'return-summary__total-amount';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.amazon.com') {
+                className = 'a-section a-spacing-top-micro a-text-right';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('span')[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'returns.beachbunnyswimwear.com') {
+                className = 'return-total';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('span')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.macys.com') {
+                className = 'pricing-wrapper';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByClassName('total')[0].getElementsByTagName('p')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.walmart.com') {
+                className = 'order-total top-separator';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByClassName('heading-d no-margin')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.adidas.com') {
+                className = 'gl-price gl-price--horizontal notranslate gl-label--bold';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('div')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.samsung.com') {
+                className = 'rpb-row total-row';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByClassName('rpb-row-price')[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.target.com') {
+                className = 'Row-uds8za-0 kxCChi h-text-lg h-text-bold';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('div')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'returns.fahertybrand.com') {
+                className = 'rpb-row total-row';
+                elements = document.getElementsByTagName('return-totals');
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByClassName('totals-amount')[4].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'usprettylittlething.intelligentreturns.net') {
+                className = 'amount-to-return-title';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('span')[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.bestbuy.com') {
+                className = 'sku-item-with-total__item-total';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByClassName('dollar-amount')[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'returns.stevemadden.com') {
+                className = 'amount-row highlight-amount-row font-weight-bold';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('div')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.nike.com') {
+                className = 'd-sm-flx flx-wr-sm-nw headline-5';
+                elements = document.getElementsByClassName(className);
+                const checkboxes = document.getElementsByClassName('css-1ie939s-return Item d-sm-flx flx-wr-sm-nw checked');
+                return setTimeout(function () {
+                    if (checkboxes.length > 0 && elements.length > 0) {
+                        value = elements[0].getElementsByClassName('flx-dir-sm-r')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
         }
+
         if (message === "addIframe") {
             iframe.style.height = '200px'
         }
