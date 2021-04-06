@@ -104,11 +104,11 @@ window.addEventListener('load', () => {
             }
 
             if (domain === 'www.macys.com') {
-                className = 'pricing-wrapper';
-                elements = document.getElementsByClassName(className);
+                className = 'om_returns_estimated-credit';
+                elements = document.getElementById(className);
                 return setTimeout(function () {
-                    if (elements.length > 0) {
-                        value = elements[0].getElementsByClassName('total')[0].getElementsByTagName('p')[1].innerHTML;
+                    if (elements) {
+                        value = elements.innerHTML;
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
@@ -117,11 +117,11 @@ window.addEventListener('load', () => {
             }
 
             if (domain === 'www.walmart.com') {
-                className = 'order-total top-separator';
+                className = 'total-refund font-bold';
                 elements = document.getElementsByClassName(className);
                 return setTimeout(function () {
                     if (elements.length > 0) {
-                        value = elements[0].getElementsByClassName('heading-d no-margin')[1].innerHTML;
+                        value = elements[0].innerHTML;
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
@@ -158,10 +158,16 @@ window.addEventListener('load', () => {
             if (domain === 'www.target.com') {
                 className = 'Row-uds8za-0 kxCChi h-text-lg h-text-bold';
                 elements = document.getElementsByClassName(className);
+                const submit_button = document.getElementById('step-three-complete-button');
+                if (submit_button) {
+                    return sendMessage(localStorage.getItem('TARGET_REFUND_VALUE'));
+                } else {
+                    iframe.style.height = '0px';
+                }
                 return setTimeout(function () {
                     if (elements.length > 0) {
-                        value = elements[0].getElementsByTagName('div')[1].innerHTML;
-                        sendMessage(value);
+                        value = elements[0].getElementsByTagName('div')[1].getElementsByTagName('span')[0].innerHTML;
+                        localStorage.setItem('TARGET_REFUND_VALUE', value);
                     } else {
                         iframe.style.height = '0px'
                     }
@@ -181,12 +187,12 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
-            if (domain === 'usprettylittlething.intelligentreturns.net') {
-                className = 'amount-to-return-title';
-                elements = document.getElementsByClassName(className);
+            if (domain === 'usprettylittlething.intelligentreturns.net' && window.location.href === 'https://usprettylittlething.intelligentreturns.net/main/select_payment_method') {
+                className = 'amount_to_return_span';
+                elements = document.getElementById(className);
                 return setTimeout(function () {
-                    if (elements.length > 0) {
-                        value = elements[0].getElementsByTagName('span')[0].innerHTML;
+                    if (elements) {
+                        value = elements.innerHTML;
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
