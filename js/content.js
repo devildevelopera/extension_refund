@@ -240,6 +240,46 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
+            if (domain === 'www.dickssportinggoods.com') {
+                className = 'MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-12';
+                elements = document.getElementsByClassName(className);
+                const checkboxes = document.getElementsByClassName('MuiButtonBase-root MuiIconButton-root jss1 MuiCheckbox-root MuiCheckbox-colorSecondary mts jss2 Mui-checked MuiIconButton-colorSecondary');
+                return setTimeout(function () {
+                    if (checkboxes.length > 0 && elements.length > 0) {
+                        value = elements[0].getElementsByClassName('mbs')[0].getElementsByTagName('strong')[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'encore.brandedonline.com') {
+                className = 'table table-borderless refund-table';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('tr')[2].getElementsByTagName('strong')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.thereformation.com') {
+                className = 'account-content__block-items';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByClassName('account-content__block-item')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
         }
 
         if (message === "addIframe") {
