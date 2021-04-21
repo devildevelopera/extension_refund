@@ -388,6 +388,58 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
+            if (domain === 'www.bloomingdales.com') {
+                className = 'om_returns_estimated-credit';
+                elements = document.getElementById(className);
+                return setTimeout(function() {
+                    if (elements) {
+                        value = elements.innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.thenorthface.com') {
+                className = 'order-total return-order-total';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.billabong.com') {
+                className = 'padding_left important';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'us.shein.com') {
+                className = 'return-table';
+                elements = document.getElementsByClassName(className);
+                const checkbox = document.getElementsByClassName('S-checkbox fMHPzG S-checkbox_checkbox16 S-checkbox_normal S-checkbox_checked ga-return-select');
+                return setTimeout(function() {
+                    if (checkbox.length > 0 && elements.length > 0) {
+                        value = elements[0].getElementsByTagName('td')[3].getElementsByTagName('div')[1].innerHTML.replace('US', '');
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
 
         }
 
