@@ -22,7 +22,8 @@
         "128": "images/icon-128.png"
     },
     "web_accessible_resources": [
-        "popup.html"
+        "popup.html",
+        "css/style.css"
     ],
     "permissions": [
         "tabs",

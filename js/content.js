@@ -10,9 +10,66 @@ window.addEventListener('load', () => {
     iframe.style.right = "0px";
     iframe.style.zIndex = "9000000000000000000";
     iframe.id = 'myIframe';
-    iframe.src = chrome.extension.getURL("../popup.html");
+    if (window.location.hostname !== 'www.revolve.com' && window.location.hostname !== 'www.skechers.com') {
+        iframe.src = chrome.extension.getURL("../popup.html");
+    }
 
     document.body.appendChild(iframe);
+
+    if (window.location.href === 'https://www.revolve.com/content/trackorder/') {
+        let ifrm = document.getElementById('myIframe');
+        ifrm.style.height = '200px';
+        ifrm = ifrm.contentWindow || ifrm.contentDocument.document || ifrm.contentDocument;
+        ifrm.document.open();
+        className = 'shopping-summary__footer';
+        elements = document.getElementsByClassName(className);
+        const return_date_elements = document.getElementsByClassName('js-dropdown__menu popover__content');
+        if (return_date_elements.length > 0) {
+            if (new Date(return_date_elements[4].getElementsByTagName('span')[0].innerHTML.substr(28)) > new Date()) {
+                if (elements.length > 0) {
+                    value = elements[0].getElementsByClassName('shopping-summary__value')[0].innerHTML;
+                    ifrm.document.write(`
+                        <h1>Hello</h1>
+                        <p>
+                            <h3>Your estimated refund is <span id="estimate-refund">${value}</span></h3>
+                        </p>
+                    `);
+                    let cssLink = document.createElement("link");
+                    cssLink.href = chrome.extension.getURL("css/style.css");
+                    cssLink.rel = "stylesheet";
+                    cssLink.media = "screen";
+                    ifrm.document.head.appendChild(cssLink);
+
+                    ifrm.document.close();
+                }
+            }
+        }
+    }
+
+    if (window.location.href === 'https://www.skechers.com/on/demandware.store/Sites-USSkechers-Site/en_US/Order-CheckStatus') {
+        let ifrm = document.getElementById('myIframe');
+        ifrm.style.height = '200px';
+        ifrm = ifrm.contentWindow || ifrm.contentDocument.document || ifrm.contentDocument;
+        ifrm.document.open();
+        className = 'grand-total-sum';
+        elements = document.getElementsByClassName(className);
+        if (elements.length > 0) {
+            value = elements[0].innerHTML;
+            ifrm.document.write(`
+                        <h1>Hello</h1>
+                        <p>
+                            <h3>Your estimated refund is <span id="estimate-refund">${value}</span></h3>
+                        </p>
+                    `);
+            let cssLink = document.createElement("link");
+            cssLink.href = chrome.extension.getURL("css/style.css");
+            cssLink.rel = "stylesheet";
+            cssLink.media = "screen";
+            ifrm.document.head.appendChild(cssLink);
+
+            ifrm.document.close();
+        }
+    }
 
     const sendMessage = (value) => {
         chrome.runtime.sendMessage({ type: "value", value: value });
@@ -340,7 +397,6 @@ window.addEventListener('load', () => {
                     if (elements.length > 0) {
                         const str = elements[0].getElementsByTagName('li')[0].getElementsByTagName('span')[1].innerHTML;
                         const index = str.lastIndexOf('($');
-                        console.log(index)
                         value = str.substring(index + 1, str.length - 2)
                         sendMessage(value);
                     } else {
