@@ -300,7 +300,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.dickssportinggoods.com') {
                 className = 'MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-12';
                 elements = document.getElementsByClassName(className);
-                const checkboxes = document.getElementsByClassName('MuiButtonBase-root MuiIconButton-root jss1 MuiCheckbox-root MuiCheckbox-colorSecondary mts jss2 Mui-checked MuiIconButton-colorSecondary');
+                const checkboxes = document.getElementsByClassName('MuiButtonBase-root MuiIconButton-root MuiCheckbox-root MuiCheckbox-colorSecondary mts Mui-checked MuiIconButton-colorSecondary');
                 return setTimeout(function() {
                     if (checkboxes.length > 0 && elements.length > 0) {
                         value = elements[0].getElementsByClassName('mbs')[0].getElementsByTagName('strong')[0].innerHTML;
@@ -490,6 +490,73 @@ window.addEventListener('load', () => {
                 return setTimeout(function() {
                     if (checkbox.length > 0 && elements.length > 0) {
                         value = elements[0].getElementsByTagName('td')[3].getElementsByTagName('div')[1].innerHTML.replace('US', '');
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.badgleymischka.com') {
+                const ifr = document.getElementsByTagName('iframe')[0];
+                console.log(ifr);
+                className = 'table-row body return-type';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('span')[2].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.kennethcole.com') {
+                className = 'grand-total-sum';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+            if (domain === 'herschel.com') {
+                className = 'pull-right ng-binding';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[4].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'mmlafleur.com') {
+                className = 'grand_total';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('strong')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'www.savagex.com') {
+                className = 'bfx-price Price-sc-1tftzty-0 dsbPEx BasketItemPrice__BasketPrice-u4ykr8-4 fahsvg bfx-list-price';
+                elements = document.getElementsByClassName(className);
+                const checkbox = document.getElementsByClassName('Button__ButtonElement-sc-10x0nm1-0 bXqsvU button__BasicButton-sc-5x89nt-0 AccountInitiateReturnLayout__ContinueButton-s7ohb0-7 ivfOcx');
+                return setTimeout(function() {
+                    if (checkbox.length > 0 && elements.length > 0) {
+                        value = elements[0].innerHTML;
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
