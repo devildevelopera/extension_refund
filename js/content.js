@@ -356,7 +356,7 @@ window.addEventListener('load', () => {
                 const submit_button = document.getElementsByClassName('progress-step-button');
                 return setTimeout(function() {
                     if (submit_button[3].ariaCurrent === 'step' && elements.length > 0) {
-                        value = elements[0].innerHTML;
+                        value = elements[0].innerHTML.replace('-', '');
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
@@ -406,11 +406,13 @@ window.addEventListener('load', () => {
             }
 
             if (domain === 'www.shoebacca.com') {
-                className = 'orderItemsDetail-totalPrice-SPB';
+                className = 'returnOrder-head-EGG';
                 elements = document.getElementsByClassName(className);
+                const dropdown = document.getElementsByClassName('select-input-2XP');
                 return setTimeout(function() {
-                    if (elements.length > 0) {
-                        value = elements[0].innerHTML.replace('Total ', '');
+                    if (dropdown.length > 0 && dropdown[0].value !== '0' && elements.length > 0) {
+                        const span_arr = elements[0].getElementsByTagName('span');
+                        value = span_arr[1].innerHTML + span_arr[2].innerHTML + span_arr[3].innerHTML + span_arr[4].innerHTML;
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
@@ -473,8 +475,9 @@ window.addEventListener('load', () => {
             if (domain === 'www.billabong.com') {
                 className = 'padding_left important';
                 elements = document.getElementsByClassName(className);
+                const checkbox = document.getElementsByClassName('ezreturnform');
                 return setTimeout(function() {
-                    if (elements.length > 0) {
+                    if (checkbox.length > 0 && checkbox[0].style.display === 'block' && elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
                     } else {
@@ -513,11 +516,12 @@ window.addEventListener('load', () => {
             }
 
             if (domain === 'www.kennethcole.com') {
-                className = 'grand-total-sum';
+                className = 'oh-total';
                 elements = document.getElementsByClassName(className);
+                const checkbox = document.getElementsByClassName('form-group custom-control custom-checkbox return-product-line-item return-available return-selected');
                 return setTimeout(function() {
-                    if (elements.length > 0) {
-                        value = elements[0].innerHTML;
+                    if (checkbox.length > 0 && elements.length > 0) {
+                        value = elements[0].getElementsByTagName('span')[1].innerHTML;
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
@@ -525,11 +529,11 @@ window.addEventListener('load', () => {
                 }, 500);
             }
             if (domain === 'herschel.com') {
-                className = 'pull-right ng-binding';
+                className = 'col-xs-4 ng-binding';
                 elements = document.getElementsByClassName(className);
                 return setTimeout(function() {
                     if (elements.length > 0) {
-                        value = elements[4].innerHTML;
+                        value = elements[2].innerHTML;
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
@@ -553,7 +557,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.savagex.com') {
                 className = 'bfx-price Price-sc-1tftzty-0 dsbPEx BasketItemPrice__BasketPrice-u4ykr8-4 fahsvg bfx-list-price';
                 elements = document.getElementsByClassName(className);
-                const checkbox = document.getElementsByClassName('Button__ButtonElement-sc-10x0nm1-0 bXqsvU button__BasicButton-sc-5x89nt-0 AccountInitiateReturnLayout__ContinueButton-s7ohb0-7 ivfOcx');
+                const checkbox = document.getElementsByClassName('RadioGroup__Wrapper-sc-122h4vc-0 gOnAYm BorderedRadioGroup-sc-8blr08-0 ReturnRestockOptions__RestockRadioGroup-sc-4o0m7o-0 cSBNqE');
                 return setTimeout(function() {
                     if (checkbox.length > 0 && elements.length > 0) {
                         value = elements[0].innerHTML;
