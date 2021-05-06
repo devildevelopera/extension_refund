@@ -515,12 +515,12 @@ window.addEventListener('load', () => {
             }
 
             if (domain === 'www.kennethcole.com') {
-                className = 'oh-total';
+                className = 'pricing line-item-total-price-amount item-total-null';
                 elements = document.getElementsByClassName(className);
                 const checkbox = document.getElementsByClassName('form-group custom-control custom-checkbox return-product-line-item return-available return-selected');
                 return setTimeout(function() {
                     if (checkbox.length > 0 && elements.length > 0) {
-                        value = elements[0].getElementsByTagName('span')[1].innerHTML;
+                        value = elements[0].innerHTML;
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
