@@ -473,12 +473,11 @@ window.addEventListener('load', () => {
             }
 
             if (domain === 'www.billabong.com') {
-                className = 'padding_left important';
+                className = 'total_line';
                 elements = document.getElementsByClassName(className);
-                const checkbox = document.getElementsByClassName('ezreturnform');
                 return setTimeout(function() {
-                    if (checkbox.length > 0 && checkbox[0].style.display === 'block' && elements.length > 0) {
-                        value = elements[0].innerHTML;
+                    if (elements.length > 0) {
+                        value = elements[5].getElementsByTagName('span')[1].innerHTML;
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
@@ -547,6 +546,20 @@ window.addEventListener('load', () => {
                 return setTimeout(function() {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('strong')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+
+            if (domain === 'www.guess.com') {
+                className = 'c-returns__panel-totals-value text-right m-0 p-0';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[4].innerHTML;
                         sendMessage(value);
                     } else {
                         iframe.style.height = '0px'
