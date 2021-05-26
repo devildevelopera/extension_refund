@@ -581,6 +581,20 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
+            if (domain === 'www.lulus.com') {
+                className = 'o-box__row c-refund__item o-box__row--last';
+                elements = document.getElementsByClassName(className);
+                const reasonSelect = document.getElementsByClassName('c-form__select o-flex-spread c-select__display js-select-display has-value');
+                return setTimeout(function() {
+                    if (reasonSelect.length > 0 && reasonSelect[0].getElementsByTagName('span')[1].innerHTML != 'Reason is required.' && elements.length > 0) {
+                        value = elements[0].getElementsByTagName('span')[1].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
         }
 
         if (message === "addIframe") {
