@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
 const receiveMessage = (message) => {
     if (message.type === 'value') {
         document.getElementById("estimate-refund").innerHTML = message.value;
-        chrome.runtime.sendMessage({ type: 'addIframe' });
     }
 }
 
