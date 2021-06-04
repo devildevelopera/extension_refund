@@ -595,6 +595,34 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
+            if (domain === 'www.reebok.com') {
+                className = 'gl-price-item notranslate';
+                elements = document.getElementsByClassName(className);
+                const checkbox = document.getElementsByClassName('gl-checkbox gl-checkbox--checked');
+                return setTimeout(function() {
+                    if (checkbox.length > 0 && elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'missguided.intelligentreturns.net') {
+                className = 'amount_to_return_span';
+                elements = document.getElementById(className);
+                const page_validation = (window.location.pathname === '/main/select_shipping')
+                return setTimeout(function() {
+                    if (page_validation && elements) {
+                        value = elements.innerHTML;
+                        sendMessage(value);
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
         }
 
         if (message === "addIframe") {
