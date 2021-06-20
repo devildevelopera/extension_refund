@@ -770,6 +770,63 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
+            if (domain === 'draperjames.happyreturns.com' || domain === 'universalstandard.happyreturns.com' || domain === 'cariuma.happyreturns.com' || domain === 'publicrec.happyreturns.com' || domain === 'huckberry.happyreturns.com' || domain === 'hillflint.happyreturns.com' || domain === 'andieswim.happyreturns.com') {
+                className = 'amount-row highlight-amount-row font-weight-bold';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('div')[1].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'beach-riot.loopreturns.com') {
+                className = 'return-summary__total-amount';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'us.romwe.com') {
+                className = 'return-usprice';
+                elements = document.getElementsByClassName(className);
+                const opa = document.getElementsByClassName('S-radio ieTZrC S-radio_radio20 S-radio_normal S-radio_checked');
+                return setTimeout(function() {
+                    if (opa.length > 0 && opa[0].getAttribute("da-label") === "Payment Account" && elements.length > 0) {
+                        value = elements[0].innerHTML.trim().substring(3, elements[0].innerHTML.trim().length - 1);
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'olivers.loopreturns.com') {
+                className = 'base-text return-summary__value display-large';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
         }
     }
 
