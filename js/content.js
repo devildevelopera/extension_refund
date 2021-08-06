@@ -126,20 +126,6 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
-            if (domain === 'returns.narvar.com') {
-                className = 'return-summary-estimated-refund-value';
-                elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
-                    if (elements.length > 0) {
-                        value = elements[0].innerHTML;
-                        sendMessage(value);
-                        iframe.style.height = '200px'
-                    } else {
-                        iframe.style.height = '0px'
-                    }
-                }, 500);
-            }
-
             if (domain === 'returns.getcasely.com') {
                 className = 'return-summary__total-amount';
                 elements = document.getElementsByClassName(className);
@@ -827,6 +813,102 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
+            // New store August5th
+            // Important, first remove the 'returns.narvar.com' section (line 129) already added
+
+            if (window.location.href.includes('https://returns.narvar.com/vince/returns/step-2')) {
+                className = 'est-refund';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'returns.narvar.com') {
+                className = 'return-summary-refund-value _2dRR';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (['exchanges.shopduer.com',
+                    'returns.baseballism.com',
+                    'returns.marinelayer.com',
+                    'returns.oneillclothing.com',
+                    'exchanges.allbirds.com',
+                    'exchanges.puravidabracelets.com',
+                    'returns.hourglasscosmetics.com',
+                    'returns.thrivecausemetics.com',
+                    'returns.brooklinen.com'
+                ].includes(domain)) {
+                className = 'base-text return-summary__value display-large';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (['returns.gathre.com', 'returns.unique-vintage.com', 'felinagroup.returnly.com', 'returns.beyondyoga.com', 'returns.thirdlove.com'].includes(domain)) {
+                className = 'return-total';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('span')[1].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (['returns.cultgaia.com', 'returns.sundryclothing.com'].includes(domain)) {
+                className = 'refund-estimate-total totals-amount';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function() {
+                    if (elements.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'returns.fanatics.com') {
+                className = 'return-total';
+                elements = document.getElementsByClassName(className);
+                paymentMethodChecks = document.getElementsByClassName('return-summary__refund-method-option selected');
+                return setTimeout(function() {
+                    if (elements.length > 0 && paymentMethodChecks.length > 0) {
+                        value = elements[0].getElementsByTagName('span')[1].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
         }
     }
 
