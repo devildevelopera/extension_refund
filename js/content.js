@@ -77,7 +77,7 @@ window.addEventListener('load', () => {
         ifrm = ifrm.contentWindow || ifrm.contentDocument.document || ifrm.contentDocument;
         ifrm.document.open();
         className = 'o-box__row c-refund__item o-box__row--last';
-        var refreshIntervalId = setInterval(function() {
+        var refreshIntervalId = setInterval(function () {
             elements = document.getElementsByClassName(className);
             if (elements.length > 0) {
                 clearInterval(refreshIntervalId);
@@ -115,7 +115,7 @@ window.addEventListener('load', () => {
             if (domain.includes('.store.apple.com')) {
                 className = 'rs-refundsummary-value column large-3 small-4 small-offset-1';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[3].innerHTML;
                         sendMessage(value);
@@ -129,7 +129,7 @@ window.addEventListener('load', () => {
             if (domain === 'returns.getcasely.com') {
                 className = 'return-summary__total-amount';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -143,7 +143,7 @@ window.addEventListener('load', () => {
             if (domain === 'returns.wearfigs.com' || domain === 'returns.verishop.com') {
                 className = 'return-summary__total-amount';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -157,7 +157,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.amazon.com') {
                 className = 'a-section a-spacing-top-micro a-text-right';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('span')[0].innerHTML;
                         sendMessage(value);
@@ -171,7 +171,7 @@ window.addEventListener('load', () => {
             if (domain === 'returns.beachbunnyswimwear.com') {
                 className = 'return-total';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('span')[1].innerHTML;
                         sendMessage(value);
@@ -185,7 +185,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.macys.com') {
                 className = 'om_returns_estimated-credit';
                 elements = document.getElementById(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements) {
                         value = elements.innerHTML;
                         sendMessage(value);
@@ -199,7 +199,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.walmart.com') {
                 className = 'total-refund font-bold';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -213,7 +213,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.adidas.com') {
                 className = 'gl-price gl-price--horizontal notranslate gl-label--bold';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('div')[1].innerHTML;
                         sendMessage(value);
@@ -227,7 +227,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.samsung.com') {
                 className = 'rpb-row total-row';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByClassName('rpb-row-price')[0].innerHTML;
                         sendMessage(value);
@@ -247,7 +247,7 @@ window.addEventListener('load', () => {
                 } else {
                     iframe.style.height = '0px';
                 }
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('div')[1].getElementsByTagName('span')[0].innerHTML;
                         localStorage.setItem('TARGET_REFUND_VALUE', value);
@@ -260,7 +260,7 @@ window.addEventListener('load', () => {
             if (domain === 'returns.fahertybrand.com') {
                 className = 'rpb-row total-row';
                 elements = document.getElementsByTagName('return-totals');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByClassName('totals-amount')[4].innerHTML;
                         sendMessage(value);
@@ -274,7 +274,7 @@ window.addEventListener('load', () => {
             if (domain === 'usprettylittlething.intelligentreturns.net' && window.location.href === 'https://usprettylittlething.intelligentreturns.net/main/select_payment_method') {
                 className = 'amount_to_return_span';
                 elements = document.getElementById(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements) {
                         value = elements.innerHTML;
                         sendMessage(value);
@@ -288,7 +288,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.bestbuy.com') {
                 className = 'sku-item-with-total__item-total';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByClassName('dollar-amount')[0].innerHTML;
                         sendMessage(value);
@@ -302,7 +302,7 @@ window.addEventListener('load', () => {
             if (domain === 'returns.stevemadden.com') {
                 className = 'amount-row highlight-amount-row font-weight-bold';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('div')[1].innerHTML;
                         sendMessage(value);
@@ -317,7 +317,7 @@ window.addEventListener('load', () => {
                 className = 'd-sm-flx flx-wr-sm-nw headline-5';
                 elements = document.getElementsByClassName(className);
                 const checkboxes = document.getElementsByClassName('css-1ie939s-return Item d-sm-flx flx-wr-sm-nw checked');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (checkboxes.length > 0 && elements.length > 0) {
                         value = elements[0].getElementsByClassName('flx-dir-sm-r')[1].innerHTML;
                         sendMessage(value);
@@ -332,7 +332,7 @@ window.addEventListener('load', () => {
                 className = 'MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 MuiGrid-grid-md-12';
                 elements = document.getElementsByClassName(className);
                 const checkboxes = document.getElementsByClassName('MuiButtonBase-root MuiIconButton-root MuiCheckbox-root MuiCheckbox-colorSecondary mts Mui-checked MuiIconButton-colorSecondary');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (checkboxes.length > 0 && elements.length > 0) {
                         value = elements[0].getElementsByClassName('mbs')[0].getElementsByTagName('strong')[0].innerHTML;
                         sendMessage(value);
@@ -346,7 +346,7 @@ window.addEventListener('load', () => {
             if (domain === 'encore.brandedonline.com') {
                 className = 'table table-borderless refund-table';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('tr')[2].getElementsByTagName('strong')[1].innerHTML;
                         sendMessage(value);
@@ -360,7 +360,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.thereformation.com') {
                 className = 'account-content__block-items';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByClassName('account-content__block-item')[1].innerHTML;
                         sendMessage(value);
@@ -374,7 +374,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.newbalance.com') {
                 className = 'font-body-large font-weight-bold ml-0 ml-lg-3';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -389,7 +389,7 @@ window.addEventListener('load', () => {
                 className = 'transaction-summary-item-amount transaction-summary-negative';
                 elements = document.getElementsByClassName(className);
                 const submit_button = document.getElementsByClassName('progress-step-button');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (submit_button[3].ariaCurrent === 'step' && elements.length > 0) {
                         value = elements[0].innerHTML.replace('-', '');
                         sendMessage(value);
@@ -403,7 +403,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.fila.com') {
                 className = 'order-total';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('td')[1].innerHTML;
                         sendMessage(value);
@@ -417,7 +417,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.matchesfashion.com') {
                 className = 'refundTotal';
                 elements = document.getElementById(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements) {
                         value = elements.innerHTML;
                         sendMessage(value);
@@ -431,7 +431,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.spanx.com') {
                 className = 'mst-rma-box__content';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         const str = elements[0].getElementsByTagName('li')[0].getElementsByTagName('span')[1].innerHTML;
                         const index = str.lastIndexOf('($');
@@ -448,7 +448,7 @@ window.addEventListener('load', () => {
                 className = 'returnOrder-head-EGG';
                 elements = document.getElementsByClassName(className);
                 const dropdown = document.getElementsByClassName('select-input-2XP');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (dropdown.length > 0 && dropdown[0].value !== '0' && elements.length > 0) {
                         const span_arr = elements[0].getElementsByTagName('span');
                         value = span_arr[1].innerHTML + span_arr[2].innerHTML + span_arr[3].innerHTML + span_arr[4].innerHTML;
@@ -463,7 +463,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.victoriassecret.com') {
                 className = 'fabric-h3-typography-element fabric-wcag-typography-element payment-total';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('td')[0].innerHTML;
                         sendMessage(value);
@@ -477,7 +477,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.ssense.com') {
                 className = 'span3 item-price';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML.replace('USD', '');
                         sendMessage(value);
@@ -491,7 +491,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.bloomingdales.com') {
                 className = 'om_returns_estimated-credit';
                 elements = document.getElementById(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements) {
                         value = elements.innerHTML;
                         sendMessage(value);
@@ -505,7 +505,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.thenorthface.com') {
                 className = 'order-total return-order-total';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -519,7 +519,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.billabong.com') {
                 className = 'total_line';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[5].getElementsByTagName('span')[1].innerHTML;
                         sendMessage(value);
@@ -534,7 +534,7 @@ window.addEventListener('load', () => {
                 className = 'return-table';
                 elements = document.getElementsByClassName(className);
                 const checkbox = document.getElementsByClassName('S-checkbox fMHPzG S-checkbox_checkbox16 S-checkbox_normal S-checkbox_checked ga-return-select');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (checkbox.length > 0 && elements.length > 0) {
                         value = elements[0].getElementsByTagName('td')[3].getElementsByTagName('div')[1].innerHTML.replace('US', '');
                         sendMessage(value);
@@ -550,7 +550,7 @@ window.addEventListener('load', () => {
                 console.log(ifr);
                 className = 'table-row body return-type';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('span')[2].innerHTML;
                         sendMessage(value);
@@ -565,7 +565,7 @@ window.addEventListener('load', () => {
                 className = 'pricing line-item-total-price-amount item-total-null';
                 elements = document.getElementsByClassName(className);
                 const checkbox = document.getElementsByClassName('form-group custom-control custom-checkbox return-product-line-item return-available return-selected');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (checkbox.length > 0 && elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -578,7 +578,7 @@ window.addEventListener('load', () => {
             if (domain === 'herschel.com') {
                 className = 'col-xs-4 ng-binding';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[2].innerHTML;
                         sendMessage(value);
@@ -592,7 +592,7 @@ window.addEventListener('load', () => {
             if (domain === 'mmlafleur.com') {
                 className = 'grand_total';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('strong')[1].innerHTML;
                         sendMessage(value);
@@ -607,7 +607,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.guess.com') {
                 className = 'c-returns__panel-totals-value text-right m-0 p-0';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[4].innerHTML;
                         sendMessage(value);
@@ -622,7 +622,7 @@ window.addEventListener('load', () => {
                 className = 'bfx-price Price-sc-1tftzty-0 dsbPEx BasketItemPrice__BasketPrice-u4ykr8-4 fahsvg bfx-list-price';
                 elements = document.getElementsByClassName(className);
                 const checkbox = document.getElementsByClassName('RadioGroup__Wrapper-sc-122h4vc-0 gOnAYm BorderedRadioGroup-sc-8blr08-0 ReturnRestockOptions__RestockRadioGroup-sc-4o0m7o-0 cSBNqE');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (checkbox.length > 0 && elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -637,7 +637,7 @@ window.addEventListener('load', () => {
                 className = 'gl-price-item notranslate';
                 elements = document.getElementsByClassName(className);
                 const checkbox = document.getElementsByClassName('gl-checkbox gl-checkbox--checked');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (checkbox.length > 0 && elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -652,7 +652,7 @@ window.addEventListener('load', () => {
                 className = 'amount_to_return_span';
                 elements = document.getElementById(className);
                 const page_validation = (window.location.pathname === '/main/select_shipping')
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (page_validation && elements) {
                         value = elements.innerHTML;
                         sendMessage(value);
@@ -667,7 +667,7 @@ window.addEventListener('load', () => {
                 className = 'hidden-xs hidden-md hidden-sm col-xl-2 col-lg-2 align_right order_details_item_details_cost';
                 elements = document.getElementsByClassName(className);
                 const checkbox = document.getElementsByClassName('big-green');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (checkbox.length > 0 && elements.length > 0) {
                         value = elements[0].getElementsByTagName('p')[1].innerHTML;
                         sendMessage(value);
@@ -681,7 +681,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.cuyana.com') {
                 className = 'pricing line-item-total-price-amount';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -695,7 +695,7 @@ window.addEventListener('load', () => {
             if (domain === 'www.roxy.com' || domain === 'www.rvca.com') {
                 className = 'block_totals';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByClassName('total_line')[5].getElementsByTagName('span')[1].innerHTML;
                         sendMessage(value);
@@ -710,7 +710,7 @@ window.addEventListener('load', () => {
                 className = 'product_properties';
                 elements = document.getElementsByClassName(className);
                 let step2 = document.getElementsByClassName('progress_step_bubble active customizable')
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (step2.length > 1 && step2[1].getElementsByClassName('progress_step_bubble_text')[0].innerHTML === '2' && elements.length > 0) {
                         value = elements[1].getElementsByClassName('product_property')[3].innerHTML;
                         sendMessage(value);
@@ -725,7 +725,7 @@ window.addEventListener('load', () => {
                 className = 'amount_to_return_span';
                 elements = document.getElementById(className);
                 const step3 = document.getElementsByClassName('step-3 current');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (step3.length > 0 && elements) {
                         value = elements.innerHTML;
                         sendMessage(value);
@@ -745,7 +745,7 @@ window.addEventListener('load', () => {
                         break;
                     }
                 }
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (index) {
                         value = elements[index].innerHTML;
                         sendMessage(value);
@@ -759,7 +759,7 @@ window.addEventListener('load', () => {
             if (domain === 'draperjames.happyreturns.com' || domain === 'universalstandard.happyreturns.com' || domain === 'cariuma.happyreturns.com' || domain === 'publicrec.happyreturns.com' || domain === 'huckberry.happyreturns.com' || domain === 'hillflint.happyreturns.com' || domain === 'andieswim.happyreturns.com') {
                 className = 'amount-row highlight-amount-row font-weight-bold';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('div')[1].innerHTML;
                         sendMessage(value);
@@ -773,7 +773,7 @@ window.addEventListener('load', () => {
             if (domain === 'beach-riot.loopreturns.com') {
                 className = 'return-summary__total-amount';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -788,7 +788,7 @@ window.addEventListener('load', () => {
                 className = 'return-usprice';
                 elements = document.getElementsByClassName(className);
                 const opa = document.getElementsByClassName('S-radio ieTZrC S-radio_radio20 S-radio_normal S-radio_checked');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (opa.length > 0 && opa[0].getAttribute("da-label") === "Payment Account" && elements.length > 0) {
                         value = elements[0].innerHTML.trim().substring(3, elements[0].innerHTML.trim().length - 1);
                         sendMessage(value);
@@ -802,7 +802,7 @@ window.addEventListener('load', () => {
             if (domain === 'olivers.loopreturns.com') {
                 className = 'base-text return-summary__value display-large';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -819,7 +819,7 @@ window.addEventListener('load', () => {
             if (window.location.href.includes('https://returns.narvar.com/vince/returns/step-2')) {
                 className = 'est-refund';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -833,7 +833,7 @@ window.addEventListener('load', () => {
             if (domain === 'returns.narvar.com') {
                 className = 'return-summary-refund-value _2dRR';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -845,18 +845,18 @@ window.addEventListener('load', () => {
             }
 
             if (['exchanges.shopduer.com',
-                    'returns.baseballism.com',
-                    'returns.marinelayer.com',
-                    'returns.oneillclothing.com',
-                    'exchanges.allbirds.com',
-                    'exchanges.puravidabracelets.com',
-                    'returns.hourglasscosmetics.com',
-                    'returns.thrivecausemetics.com',
-                    'returns.brooklinen.com'
-                ].includes(domain)) {
+                'returns.baseballism.com',
+                'returns.marinelayer.com',
+                'returns.oneillclothing.com',
+                'exchanges.allbirds.com',
+                'exchanges.puravidabracelets.com',
+                'returns.hourglasscosmetics.com',
+                'returns.thrivecausemetics.com',
+                'returns.brooklinen.com'
+            ].includes(domain)) {
                 className = 'base-text return-summary__value display-large';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -867,10 +867,15 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
-            if (['returns.gathre.com', 'returns.unique-vintage.com', 'felinagroup.returnly.com', 'returns.beyondyoga.com', 'returns.thirdlove.com'].includes(domain)) {
+            if (['returns.gathre.com',
+                'returns.unique-vintage.com',
+                'unique-vintage.returnly.com',
+                'felinagroup.returnly.com',
+                'returns.beyondyoga.com',
+                'returns.thirdlove.com'].includes(domain)) {
                 className = 'return-total';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('span')[1].innerHTML;
                         sendMessage(value);
@@ -884,7 +889,7 @@ window.addEventListener('load', () => {
             if (['returns.cultgaia.com', 'returns.sundryclothing.com'].includes(domain)) {
                 className = 'refund-estimate-total totals-amount';
                 elements = document.getElementsByClassName(className);
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].innerHTML;
                         sendMessage(value);
@@ -899,9 +904,23 @@ window.addEventListener('load', () => {
                 className = 'return-total';
                 elements = document.getElementsByClassName(className);
                 paymentMethodChecks = document.getElementsByClassName('return-summary__refund-method-option selected');
-                return setTimeout(function() {
+                return setTimeout(function () {
                     if (elements.length > 0 && paymentMethodChecks.length > 0) {
                         value = elements[0].getElementsByTagName('span')[1].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (domain === 'us-gymshark.happyreturns.com') {
+                className = 'amount-row highlight-amount-row font-weight-bold';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[0].getElementsByTagName('div')[1].innerHTML;
                         sendMessage(value);
                         iframe.style.height = '200px'
                     } else {
