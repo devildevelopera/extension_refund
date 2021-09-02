@@ -799,7 +799,16 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
-            if (domain === 'olivers.loopreturns.com') {
+            if (['olivers.loopreturns.com',
+                'returns.cotopaxi.com',
+                'exchanges.chubbiesshorts.com',
+                'johnelliott.loopreturns.com',
+                'returns.skims.com',
+                'tommyjohn.loopreturns.com',
+                '686.loopreturns.com',
+                'returns.naadam.co',
+                'returns.oliveandpiper.com',
+                'mnml.loopreturns.com'].includes(domain)) {
                 className = 'base-text return-summary__value display-large';
                 elements = document.getElementsByClassName(className);
                 return setTimeout(function () {
@@ -852,7 +861,8 @@ window.addEventListener('load', () => {
                 'exchanges.puravidabracelets.com',
                 'returns.hourglasscosmetics.com',
                 'returns.thrivecausemetics.com',
-                'returns.brooklinen.com'
+                'returns.brooklinen.com',
+                'staud.loopreturns.com'
             ].includes(domain)) {
                 className = 'base-text return-summary__value display-large';
                 elements = document.getElementsByClassName(className);
@@ -872,7 +882,12 @@ window.addEventListener('load', () => {
                 'unique-vintage.returnly.com',
                 'felinagroup.returnly.com',
                 'returns.beyondyoga.com',
-                'returns.thirdlove.com'].includes(domain)) {
+                'returns.thirdlove.com',
+                'returns.bandier.com',
+                'returns.supergoop.com',
+                'returns.everlane.com',
+                'returns.koio.co',
+                'returns.carolineconstas.com'].includes(domain)) {
                 className = 'return-total';
                 elements = document.getElementsByClassName(className);
                 return setTimeout(function () {
@@ -886,7 +901,12 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
-            if (['returns.cultgaia.com', 'returns.sundryclothing.com'].includes(domain)) {
+            if (['returns.cultgaia.com',
+                'returns.sundryclothing.com',
+                'returns.untuckit.com',
+                'returns.southerntide.com',
+                'returns.outdoorvoices.com',
+                'returns.showmeyourmumu.com'].includes(domain)) {
                 className = 'refund-estimate-total totals-amount';
                 elements = document.getElementsByClassName(className);
                 return setTimeout(function () {
@@ -900,7 +920,9 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
-            if (domain === 'returns.fanatics.com') {
+            if (['returns.fanatics.com',
+                'returns.mlsstore.com',
+                'returns.shop.nhl.com'].includes(domain)) {
                 className = 'return-total';
                 elements = document.getElementsByClassName(className);
                 paymentMethodChecks = document.getElementsByClassName('return-summary__refund-method-option selected');
@@ -915,12 +937,42 @@ window.addEventListener('load', () => {
                 }, 500);
             }
 
-            if (domain === 'us-gymshark.happyreturns.com') {
+            if (['12th-tribe.returnly.com'].includes(domain)) {
+                className = 'totals-amount not-customizable-black bold';
+                elements = document.getElementsByClassName(className);
+                paymentMethodChecks = document.getElementsByClassName('return-summary__refund-method-option selected');
+                return setTimeout(function () {
+                    if (elements.length > 0 && paymentMethodChecks.length > 0) {
+                        value = elements[0].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (['us-gymshark.happyreturns.com',
+                'returns.shoppinkblush.com']) {
                 className = 'amount-row highlight-amount-row font-weight-bold';
                 elements = document.getElementsByClassName(className);
                 return setTimeout(function () {
                     if (elements.length > 0) {
                         value = elements[0].getElementsByTagName('div')[1].innerHTML;
+                        sendMessage(value);
+                        iframe.style.height = '200px'
+                    } else {
+                        iframe.style.height = '0px'
+                    }
+                }, 500);
+            }
+
+            if (['threebirdnest.returnlogic.com'].includes(domain)) {
+                className = 'total-amount ng-binding';
+                elements = document.getElementsByClassName(className);
+                return setTimeout(function () {
+                    if (elements.length > 0) {
+                        value = elements[4].innerHTML;
                         sendMessage(value);
                         iframe.style.height = '200px'
                     } else {
